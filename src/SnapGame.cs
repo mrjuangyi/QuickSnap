@@ -33,14 +33,21 @@ namespace CardGames
 				
 				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) &&
 				   SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
+					SwinGame.LoadSoundEffectNamed ("laugh", "laugh.wav");
+					SwinGame.PlaySoundEffect ("laugh");
 
 				} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
-					myGame.PlayerHit (0);
+					
 					SwinGame.LoadSoundEffectNamed ("Snap", "snap.wav");
-					SwinGame.PlaySoundEffect ("Slap");
+					SwinGame.PlaySoundEffect ("Snap");
+					myGame.PlayerHit (0);
+
 				} else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
+					SwinGame.LoadSoundEffectNamed ("Snap2", "snap2.wav");
+					SwinGame.PlaySoundEffect ("Snap2");
 					myGame.PlayerHit (1);
 				}
+
 			}
 		}
 
@@ -90,7 +97,7 @@ namespace CardGames
 
 			//Load the card images and set their cell details
             LoadResources();
-            
+
 			// Create the game!
 			Snap myGame = new Snap ();
 
@@ -100,7 +107,9 @@ namespace CardGames
 				HandleUserInput (myGame);
 				DrawGame (myGame);
 				UpdateGame (myGame);
+
             }
+
         }
     }
 }
