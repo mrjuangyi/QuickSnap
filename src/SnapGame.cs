@@ -26,14 +26,18 @@ namespace CardGames
 			if (SwinGame.KeyTyped (KeyCode.vk_SPACE)) {
 				myGame.Start ();
 				myGame.FlipNextCard ();
+
 			}
 
 			if (myGame.IsStarted) {
+				
 				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) &&
 				   SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
 
 				} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
 					myGame.PlayerHit (0);
+					SwinGame.LoadSoundEffectNamed ("Snap", "snap.wav");
+					SwinGame.PlaySoundEffect ("Slap");
 				} else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
 					myGame.PlayerHit (1);
 				}
